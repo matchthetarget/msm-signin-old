@@ -11,4 +11,7 @@
 #
 
 class Character < ApplicationRecord
+  def actor
+    return Actor.where({ :id => self.actor_id }).at(0)
+  end
 end

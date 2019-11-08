@@ -1,0 +1,114 @@
+<h1>
+  All movies
+</h1>
+
+<hr>
+
+<h2>Add a new movie</h2>
+
+<form action="/insert_movie_record">
+  <div>
+    <label for="title_box">
+      Title
+    </label>
+
+    <input type="text" id="title_box" name="input_title">
+  </div>
+
+  <div>
+    <label for="year_box">
+      Year
+    </label>
+  
+    <input type="text" id="year_box" name="input_year">
+  </div>
+
+  <div>
+    <label for="description_box">
+      Description
+    </label>
+
+    <textarea id="description_box" name="input_description" rows="3"></textarea>
+  </div>
+
+  <div>
+    <label for="duration_box">
+      Duration
+    </label>
+
+    <input type="text" id="duration_box" name="input_duration">
+  </div>
+
+  <div>
+    <label for="image_box">
+      Image
+    </label>
+
+    <textarea id="image_box" name="input_image_url" rows="3"></textarea>
+  </div>
+
+  <div>
+    <label for="director_id_box">
+      Director
+    </label>
+
+    <input type="text" id="director_id_box" name="input_director_id">
+  </div>
+
+  <button>
+    Add movie
+  </button>
+</form>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      Image
+    </th>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @movies.each do |movie| %>
+  <tr>
+    <td>
+      <img src="<%= movie.image %>" width="100">
+    </td>
+
+    <td>
+      <%= movie.title %>
+    </td>
+
+    <td>
+      <%= movie.year %>
+    </td>
+
+    <td>
+      <a href="/directors/<%= movie.director_id %>">
+        <%= movie.director.name %>
+      </a>
+    </td>
+
+    <td>
+      <a href="/movies/<%= movie.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MsmGui</title>
-    <%= csrf_meta_tags %>
 
-    <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
-    <meta charset="utf-8">
+<head>
+  <title>Target MSM GUI</title>
+  <%= csrf_meta_tags %>
 
-    <!-- Make it responsive to small screens -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csp_meta_tag %>
+  <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
+  <meta charset="utf-8">
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
-  </head>
+  <!-- Make it responsive to small screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
+</head>
+
+<body>
+  <ul>
+    <li>
+      <a href="/movies">
+        All movies
+      </a>
+    </li>
+    <li>
+      <a href="/movies/long">
+        Long movies
+      </a>
+    </li>
+    <li>
+      <a href="/movies/short">
+        Short movies
+      </a>
+    </li>
+    <li>
+      <a href="/movies/last_decade">
+        Recent movies
+      </a>
+    </li>
+    <li>
+      <a href="/directors">
+        All directors
+      </a>
+    </li>
+  </ul>
+  <%= yield %>
+</body>
+
 </html>
