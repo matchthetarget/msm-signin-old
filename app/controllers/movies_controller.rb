@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all.order({ :year => :asc })
+    @movies = Movie.all.order({ :created_at => :desc })
     
     respond_to do |format|
       format.json do
