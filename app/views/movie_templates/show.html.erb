@@ -129,7 +129,13 @@
       Director
     </label>
 
-    <input type="text" id="director_id_box" name="input_director_id" value="<%= @movie.director_id %>">
+    <select id="director_id_box" name="input_director_id">
+      <% Director.order(:name).each do |director| %>
+        <option value="<%= director.id %>">
+          <%= director.name %>
+        </option>
+      <% end %>
+    </select>
   </div>
 
   <button>

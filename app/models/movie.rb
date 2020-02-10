@@ -14,6 +14,9 @@
 #
 
 class Movie < ApplicationRecord
+  validates(:title, { :presence => true })
+  validates(:director, { :presence => true })
+
   def Movie.last_decade
     return Movie.where("year > ?", 10.years.ago.year)
   end

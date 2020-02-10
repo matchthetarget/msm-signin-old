@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
     movie = Movie.new
 
     movie.title = params.fetch(:input_title, nil)
-    movie.title = params.fetch(:input_description, nil)
+    movie.description = params.fetch(:input_description, nil)
     movie.year = params.fetch(:input_year, nil)
     movie.duration = params.fetch(:input_duration, nil)
     movie.image = params.fetch(:input_image_url, nil)
