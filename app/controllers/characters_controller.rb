@@ -21,7 +21,7 @@ class CharactersController < ApplicationController
 
     character.save
 
-    render({ :json => character.as_json })
+    redirect_to("/movies/#{character.movie_id}")
   end
 
   def update
