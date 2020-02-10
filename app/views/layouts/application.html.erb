@@ -14,42 +14,54 @@
 
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_pack_tag 'application' %>
+
+  <!-- Connect Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <!-- Connect Bootstrap JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Make it responsive to small screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
-  <ul>
-    <li>
-      <a href="/movies">
-        All movies
-      </a>
-    </li>
-    <li>
-      <a href="/movies/long">
-        Long movies
-      </a>
-    </li>
-    <li>
-      <a href="/movies/short">
-        Short movies
-      </a>
-    </li>
-    <li>
-      <a href="/movies/last_decade">
-        Recent movies
-      </a>
-    </li>
-    <li>
-      <a href="/directors">
-        All directors
-      </a>
-    </li>
-    <li>
-      <a href="/actors">
-        All actors
-      </a>
-    </li>
-  </ul>
-  <%= yield %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">MSM GUI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="/movies" class="nav-link">
+            All movies
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/movies/long" class="nav-link">
+            Long movies
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/movies/short" class="nav-link">
+            Short movies
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/movies/last_decade" class="nav-link">
+            Recent movies
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 
 </html>
