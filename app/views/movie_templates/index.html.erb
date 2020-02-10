@@ -1,52 +1,52 @@
 <h2>Add a new movie</h2>
 
 <form action="/insert_movie_record">
-  <div class="form-group">
+  <div>
     <label for="title_box">
       Title
     </label>
 
-    <input type="text" id="title_box" name="input_title" class="form-control">
+    <input type="text" id="title_box" name="input_title">
   </div>
 
-  <div class="form-group">
+  <div>
     <label for="year_box">
       Year
     </label>
   
-    <input type="text" id="year_box" name="input_year" class="form-control">
+    <input type="text" id="year_box" name="input_year">
   </div>
 
-  <div class="form-group">
+  <div>
     <label for="description_box">
       Description
     </label>
 
-    <textarea id="description_box" name="input_description" rows="3" class="form-control"></textarea>
+    <textarea id="description_box" name="input_description" rows="3"></textarea>
   </div>
 
-  <div class="form-group">
+  <div>
     <label for="duration_box">
       Duration
     </label>
 
-    <input type="text" id="duration_box" name="input_duration" class="form-control">
+    <input type="text" id="duration_box" name="input_duration">
   </div>
 
-  <div class="form-group">
+  <div>
     <label for="image_box">
       Image
     </label>
 
-    <input id="image_box" name="input_image_url" class="form-control"></textarea>
+    <input id="image_box" name="input_image_url"></textarea>
   </div>
 
-  <div class="form-group">
+  <div>
     <label for="director_id_box">
       Director
     </label>
 
-    <select id="director_id_box" name="input_director_id" class="form-control">
+    <select id="director_id_box" name="input_director_id">
       <% Director.order(:name).each do |director| %>
         <option value="<%= director.id %>">
           <%= director.name %>
