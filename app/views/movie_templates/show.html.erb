@@ -59,11 +59,7 @@
             </select>
           </div>
 
-
-
-
           <input id="movie_box" name="input_movie_id" type="hidden" value="<%= @movie.id %>">
-
 
           <div>
             <label for="character_box">Character</label>
@@ -131,9 +127,15 @@
 
     <select id="director_id_box" name="input_director_id">
       <% Director.order(:name).each do |director| %>
-        <option value="<%= director.id %>">
-          <%= director.name %>
-        </option>
+        <% if @movie.director_id == director.id %>
+          <option value="<%= director.id %>" selected="true">
+            <%= director.name %>
+          </option>
+        <% else %>
+          <option value="<%= director.id %>">
+            <%= director.name %>
+          </option>
+        <% end %>
       <% end %>
     </select>
   </div>

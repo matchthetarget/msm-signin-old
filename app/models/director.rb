@@ -12,6 +12,8 @@
 #
 
 class Director < ApplicationRecord
+  validates(:name, { :presence => true })
+  
   def Director.youngest
     return Director.order({ :dob => :desc }).at(0)
   end

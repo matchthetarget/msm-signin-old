@@ -1,8 +1,10 @@
 namespace(:dev) do
   desc "Hydrate the database with some dummy data to look at so that developing is easier"
   task({ :prime => :environment}) do
-    ActiveRecord::Base.connection.tables.each do |t|
-      ActiveRecord::Base.connection.reset_pk_sequence!(t)
+    if Rails.env.production?
+      ActiveRecord::Base.connection.tables.each do |t|
+        ActiveRecord::Base.connection.reset_pk_sequence!(t)
+      end
     end
     
     Director.delete_all
