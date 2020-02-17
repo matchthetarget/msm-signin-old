@@ -1,5 +1,15 @@
 <h1>
   <%= @movie.title %> (<%= @movie.year %>)
+
+  <% if session[:user_id].present? %>
+    <form action="/insert_bookmark" method="post">
+      <input type="hidden" value="<%= @movie.id %>" id="movie_id_box" name="movie_id_from_query" class="form-control">
+
+      <button class="btn btn-block btn-outline-secondary">
+        Bookmark this movie!
+      </button>
+    </form>
+  <% end %>
 </h1>
 
 

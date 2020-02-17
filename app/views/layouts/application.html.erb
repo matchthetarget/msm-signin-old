@@ -29,7 +29,65 @@
 
 <body>
   
+  <!DOCTYPE html>
+<html>
+
+<head>
+  <title>Target MSM Signin</title>
+  <%= csrf_meta_tags %>
+
+  <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
+  <meta charset="utf-8">
+
+  <!-- Make it responsive to small screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
+
+  <!-- Connect Bootstrap assets -->
+  <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+  <!--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+  <!--  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script> -->
+
+  <!-- Connect Font Awesome assets -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script> -->
+  
+  <!-- Make it responsive to small screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>  
   <ul class="navbar-nav mr-auto">
+    <% if session[:user_id].blank? %>
+      <li class="nav-item">
+        <a href="/user_sign_in" class="nav-link">
+          Sign In
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/user_sign_up" class="nav-link">
+          Sign Up
+        </a>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <a href="/bookmarks" class="nav-link">
+          My Bookmarks
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/edit_user" class="nav-link">
+          Edit Profile
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/user_sign_out" class="nav-link">
+          Sign Out
+        </a>
+      </li>
+    <% end %>
     <li class="nav-item">
       <a href="/movies" class="nav-link">
         All movies
@@ -53,6 +111,18 @@
   </ul>
 
   <div class="container">
+    <% if notice.present? %>
+      <div>
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <% if alert.present? %>
+      <div>
+        <%= alert %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </div>
 </body>

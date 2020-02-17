@@ -1,0 +1,77 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      <%= @current_user.full_name %>'s bookmarked movies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new bookmark
+    </h2>
+
+    <form action="/insert_bookmark" method="post">
+      <div class="form-group">
+        <label for="movie_id_box">
+          Movie
+        </label>
+
+        <select id="movie_id_box" name="movie_id_from_query">
+          <% Movie.where.not({ :id => @current_user.movies }).order(:title).each do |movie| %>
+            <option value="<%= movie.id %>">
+              <%= movie.title %>
+            </option>
+          <% end %>
+        </select>
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create bookmark
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          Movie
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @bookmarks.order({ :created_at => :desc }).each do |bookmark| %>
+      <tr>
+        <td>
+          <%= bookmark.movie.title %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(bookmark.created_at) %> ago
+        </td>
+
+        <td>
+          <a href="/delete_bookmark/<%= bookmark.id %>">
+            Un-bookmark
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
